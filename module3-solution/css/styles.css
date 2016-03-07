@@ -47,12 +47,14 @@ h1 {
 
 .mainbox {
   /* border: 1px solid black; */
-  
+
   width: 100%;
   color: black;
   overflow: hidden;
 }
 .box {
+  padding-left: 10px;
+  padding-right: 10px;
   margin-bottom: 20px;
   margin-top: 20px;
   overflow: hidden;
