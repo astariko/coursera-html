@@ -1,2 +1,0 @@
-# coursera-html
-coursera repo
