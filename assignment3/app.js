@@ -10,23 +10,18 @@ angular.module('NarrowItDownApp', [])
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService) {
   var search = this;
-  search.items = []; //== found
   search.searchItem = "";
 
   search.search = function (){
     search.errorMessage = "";
-    if (search.searchItem =="") {
-      search.errorMessage = "Please enter a search criteria"
-      return
-    }
 
     var promise = MenuSearchService.getMatchedMenuItems(search.searchTerm);
 
     promise.then(function (response) {
       var items = response.data.menu_items;
       //console.log(search.items)
+      search.items = [];
 
-      search.items = []
       for (var i=0; i < items.length; i++) {
         if (items[i].description.indexOf(search.searchItem) >= 0){
           search.items.push(items[i]);
@@ -36,6 +31,12 @@ function NarrowItDownController(MenuSearchService) {
       if (search.items.length == 0){
         search.errorMessage = "Nothing found."
       }
+
+      if (search.searchItem =="") {
+        search.items = [];
+        search.errorMessage = "Please enter a search criteria"
+      }
+
     })
     .catch(function (error) {
       search.errorMessage = "Something went terribly wrong."
