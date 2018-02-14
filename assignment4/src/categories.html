@@ -1,0 +1,18 @@
+<!--<div ng-controller="GetCategoriesController as search"> -->
+<!--
+  <input type="text" ng-model="search.searchItem" placeholder="search term" class="form-control">
+  <button class="btn btn-default" ng-click="search.search();"> search </button>
+  <br>
+-->
+  <li ng-repeat="cat in search.categories">
+
+    <a ui-sref="items({shortName:cat.short_name})" ui-sref-active="activeTab">
+      {{cat.name}} </a>
+
+  </li>
+
+
+  <div ng-hide="!search.errorMessage"
+  style="color:Tomato">Error:
+  {{search.errorMessage}} </div>
+<!--</div>-->
