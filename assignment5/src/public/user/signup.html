@@ -1,0 +1,33 @@
+<form name='signup' class="center" novalidate>
+  Last name<br>
+	<input type='text' name='last_name' class='reg'
+	ng-model="userCtrl.user.last_name"
+	required
+	min-length="2"><br>
+  Fist name<br>
+  <input type='text' name='first_name' class='reg'
+  ng-model="userCtrl.user.first_name"
+  required
+  min-length="2"><br>
+  E-mail<br>
+  <input type='email' name='email' class='reg'
+  ng-model="userCtrl.user.email"
+  required><br>
+  Phone xxx-xxx-xxxx<br>
+  <input type='text' name='phone' class='reg'
+  ng-model="userCtrl.user.phone"
+  required
+  pattern="(\d{3})-(\d{3})-(\d{4})"><br>
+  Favourite menu item<br>
+  <input type='text' name='menu_item' class='reg'
+  ng-model="userCtrl.user.menu_item"
+  required
+  min-length="4"><br>
+
+	<button class='reg'
+  	ng-disabled="signup.$invalid"
+  	ng-click="userCtrl.register()">
+  	Submit
+  </button>
+  {{ userCtrl.result }}
+</form>

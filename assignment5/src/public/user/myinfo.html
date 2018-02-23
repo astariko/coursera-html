@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div ng-if="!userCtrl.user">
+    Please sign up first!<br>
+    <a ui-sref="public.signup"> Sign up Now! </a>
+  </div>
+  <div ng-if="userCtrl.user">
+    Welcome {{userCtrl.user.first_name}} !<br>
+    Last time we checked, your surname was {{userCtrl.user.last_name}} <br>
+    e-mail: {{userCtrl.user.email}} !<br>
+    phone: {{userCtrl.user.phone}} !<br>
+    fav item: <br>
+
+    <div>{{userCtrl.user.item.name}}</div>
+    <img class="img-responsive" width="250" height="150"
+    ng-src="{{userCtrl.basePath}}/images/{{userCtrl.user.item.short_name}}.jpg">
+
+  </div>
+</div
